@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 554173ff5d713c74db207f6f755f5775
+guid: ebe45103b46431e42b96e93174ad010f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3092569024668110288
-    second: DestructiblePlatform_0
+      213: 8888200973066904786
+    second: BasicPlatform_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DestructiblePlatform_0
+      name: BasicPlatform
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
         width: 13
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0dd08be84230bea20800000000000000
-      internalID: 3092569024668110288
+      spriteID: 2d42feb71bb395b70800000000000000
+      internalID: 8888200973066904786
       vertices: []
       indices: 
       edges: []
@@ -133,7 +133,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7cdffea2daaa3fe4ca7c899ccf7eadd2
     internalID: 0
     vertices: []
     indices: 
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DestructiblePlatform_0: 3092569024668110288
+      BasicPlatform: 8888200973066904786
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

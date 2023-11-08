@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: ebe45103b46431e42b96e93174ad010f
+guid: 8aad95af09d4a794c912ed70a3cd1468
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8888200973066904786
-    second: BasicPlatform_0
+      213: 3724306932444736685
+    second: SpikedSphere_0
+  - first:
+      213: 1558319166029322908
+    second: SpikedSphere_1
+  - first:
+      213: -2542583883753651898
+    second: SpikedSphere_2
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BasicPlatform
+      name: SpikedSphere0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 13
-        height: 3
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +130,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d42feb71bb395b70800000000000000
-      internalID: 8888200973066904786
+      spriteID: daca4ee3c656fa330800000000000000
+      internalID: 3724306932444736685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikedSphere1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9a5cd1760340a510800000000000000
+      internalID: 1558319166029322908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikedSphere2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6410b3dcd6de6bcd0800000000000000
+      internalID: -2542583883753651898
       vertices: []
       indices: 
       edges: []
@@ -133,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7cdffea2daaa3fe4ca7c899ccf7eadd2
+    spriteID: 54e557dc055d7b74085fbef52e2e2968
     internalID: 0
     vertices: []
     indices: 
@@ -141,7 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BasicPlatform: 8888200973066904786
+      SpikedSphere0: 3724306932444736685
+      SpikedSphere1: 1558319166029322908
+      SpikedSphere2: -2542583883753651898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

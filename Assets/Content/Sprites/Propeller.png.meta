@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9d923b6a062148d4cbeaa9915bc670f5
+guid: 3576b22d09836ff4a9e0ab17a313c0e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3497635901144739484
-    second: JumpPlatform_0
+      213: 5370030078279322418
+    second: Propeller_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,34 +110,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumpPlatform_0
+      name: Propeller0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 13
-        height: 7
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9ea26122591a8030800000000000000
-      internalID: 3497635901144739484
+      spriteID: 23b800197ed268a40800000000000000
+      internalID: 5370030078279322418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpPlatform_1
+      name: Propeller1
       rect:
         serializedVersion: 2
-        x: 13
+        x: 7
         y: 0
-        width: 13
-        height: 7
+        width: 7
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d24d67ebfeee834fb178a1f314741a8
-      internalID: -284054890
+      spriteID: 8b4c3e22dc313ef47a04501a7d6e6425
+      internalID: -309001751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpPlatform_2
+      name: Propeller2
       rect:
         serializedVersion: 2
-        x: 26
+        x: 14
         y: 0
-        width: 13
-        height: 7
+        width: 7
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d05b82d781aefd499a7e6122f4bbebb
-      internalID: 744743357
+      spriteID: 4dd3dad02a268574dbc341ed25ce01d4
+      internalID: -1724455771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpPlatform_3
+      name: Propeller3
       rect:
         serializedVersion: 2
-        x: 39
+        x: 21
         y: 0
-        width: 13
-        height: 7
+        width: 7
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,29 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7779fe38ec24a6e48afc5a6a19d02873
-      internalID: -1105429372
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpPlatform_4
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 0
-        width: 13
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4911783f121710646afab44ae3ce86a8
-      internalID: -939016411
+      spriteID: 7d6a5f5318f96c240a6b3d6f64b2e8f2
+      internalID: -382311140
       vertices: []
       indices: 
       edges: []
@@ -217,7 +196,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 59f3602300556c24591e105602d9deb4
+    spriteID: a62de0043afb77644a7db28fd9708f21
     internalID: 0
     vertices: []
     indices: 
@@ -225,11 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JumpPlatform_0: 3497635901144739484
-      JumpPlatform_1: -284054890
-      JumpPlatform_2: 744743357
-      JumpPlatform_3: -1105429372
-      JumpPlatform_4: -939016411
+      Propeller0: 5370030078279322418
+      Propeller1: -309001751
+      Propeller2: -1724455771
+      Propeller3: -382311140
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e01b7c58e69799a4897d0f942e6e656e
+guid: 2c8ae16b0ffa4d44e92c2328d86a0780
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5026092619118502836
-    second: MovingPlatform_0
+      213: 3349391187094723686
+    second: Cloud_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -110,43 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MovingPlatform_0
+      name: Cloud_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 26
-        height: 8
+        width: 13
+        height: 5
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b365c29b9440c540800000000000000
-      internalID: 5026092619118502836
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MovingPlatform_1
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 0
-        width: 26
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df7be1548e649184aa2f3b38d99c45bd
-      internalID: -364239882
+      spriteID: 66cda90f98d6b7e20800000000000000
+      internalID: 3349391187094723686
       vertices: []
       indices: 
       edges: []
@@ -154,7 +133,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 76702127f7d28714baca2e5492637706
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -162,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MovingPlatform_1: -364239882
+      Cloud_0: 3349391187094723686
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

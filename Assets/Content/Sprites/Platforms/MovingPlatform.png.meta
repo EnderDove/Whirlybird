@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3b8db240864e3174d89b5e8515bdfefe
+guid: e01b7c58e69799a4897d0f942e6e656e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 353833610741432996
-    second: DisappearingPlatform_0
+      213: 5026092619118502836
+    second: MovingPlatform_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,22 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DisappearingPlatform_0
+      name: MovingPlatform0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 13
-        height: 3
+        width: 26
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a246d55bc119e400800000000000000
-      internalID: 353833610741432996
+      spriteID: 4b365c29b9440c540800000000000000
+      internalID: 5026092619118502836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovingPlatform1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 26
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df7be1548e649184aa2f3b38d99c45bd
+      internalID: -364239882
       vertices: []
       indices: 
       edges: []
@@ -133,14 +154,16 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 76702127f7d28714baca2e5492637706
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MovingPlatform0: 5026092619118502836
+      MovingPlatform1: -364239882
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
