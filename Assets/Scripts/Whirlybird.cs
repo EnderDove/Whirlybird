@@ -17,6 +17,7 @@ public class Whirlybird : MonoBehaviour
     [Header("Player Parameters")]
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float hightJumpForce = 20f;
 
     #region Singleton
     private void Awake()
@@ -79,12 +80,20 @@ public class Whirlybird : MonoBehaviour
 
     public void Jump()
     {
-        PlayerBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        HandleJump(jumpForce);
     }
 
     public void HighJump()
     {
+        HandleJump(hightJumpForce);
+    }
 
+    private void HandleJump(float jumpForce)
+    {
+        Vector2 VelocityBeforeLanding = PlayerBody.velocity;
+        VelocityBeforeLanding.y = 0f;
+        PlayerBody.velocity = VelocityBeforeLanding;
+        PlayerBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
     #endregion
 }
