@@ -16,8 +16,10 @@ public class Whirlybird : MonoBehaviour
 
     [Header("Player Parameters")]
     [SerializeField] private float movementSpeed = 5f;
-    [SerializeField] private float jumpForce = 10f;
-    [SerializeField] private float hightJumpForce = 20f;
+    [SerializeField] private float jumpHeight = 8f;
+    [SerializeField] private float hightJumpHeight = 15f;
+    private float jumpForce;
+    private float hightJumpForce;
 
     #region Singleton
     private void Awake()
@@ -41,6 +43,9 @@ public class Whirlybird : MonoBehaviour
         InputHandler = GetComponent<InputHandler>();
         PlayerBody = GetComponent<Rigidbody2D>();
         PlayerSprite = GetComponentInChildren<SpriteRenderer>();
+
+        jumpForce = Mathf.Sqrt(2 * PlayerBody.gravityScale * Physics.gravity.magnitude * jumpHeight);
+        hightJumpForce = Mathf.Sqrt(2 * PlayerBody.gravityScale * Physics.gravity.magnitude * hightJumpHeight);
     }
 
     private void Update()

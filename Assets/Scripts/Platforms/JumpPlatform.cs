@@ -1,7 +1,12 @@
+using UnityEngine;
+
 public class JumpPlatform : Platform
 {
+    [SerializeField] private Animator anim;
+
     protected override void OnLandingAction()
     {
-        throw new System.NotImplementedException();
+        anim.Play("JumpPlatform");
+        Whirlybird.Instance.HighJump();
     }
 }

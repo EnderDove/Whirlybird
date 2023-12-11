@@ -16,7 +16,7 @@ public class CameraHandler : MonoBehaviour
         if (GameParameters.Instance.IsGameEnded)
             return;
 
-        if (Whirlybird.Instance.PlayerBody.position.y < Whirlybird.Instance.MaxReachedY - GameParameters.Instance.DeadZoneY)
+        if (Whirlybird.Instance.PlayerBody.position.y < Whirlybird.Instance.MaxReachedY - GameParameters.Instance.ScreenSize.y)
         {
             StartCoroutine(FlyAway());
         }
@@ -30,7 +30,7 @@ public class CameraHandler : MonoBehaviour
     private IEnumerator FlyAway()
     {
         GameParameters.Instance.IsGameEnded = true;
-        while (Whirlybird.Instance.PlayerBody.position.y > Whirlybird.Instance.MaxReachedY - GameParameters.Instance.DeadZoneY * 5)
+        while (Whirlybird.Instance.PlayerBody.position.y > Whirlybird.Instance.MaxReachedY - GameParameters.Instance.ScreenSize.y * 5)
         {
             cameraTransform.position = new Vector3(0, Mathf.MoveTowards(cameraTransform.position.y, Whirlybird.Instance.PlayerBody.position.y, 1), -10);
             yield return new WaitForFixedUpdate();

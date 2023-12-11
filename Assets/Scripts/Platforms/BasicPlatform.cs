@@ -1,4 +1,4 @@
-public class BasicPlatform : Platform
+public class BasicPlatform : Platform, IPropellerSpawner
 {
     protected override void OnLandingAction()
     {

@@ -1,4 +1,7 @@
 public interface IPropellerSpawner
 {
-    public void SpawnPropelle();
+    public virtual void SpawnPropeller()
+    {
+        return;
+    }
 }
