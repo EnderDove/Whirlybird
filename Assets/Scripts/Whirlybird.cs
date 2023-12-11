@@ -8,18 +8,16 @@ public class Whirlybird : MonoBehaviour
     public static Whirlybird Instance;
     public InputHandler InputHandler { get; private set; }
     public Rigidbody2D PlayerBody { get; private set; }
-    public SpriteRenderer PlayerSprite { get; private set; }
+    public Animator PlayerAnimator { get; private set; }
     #endregion
 
     public float MaxReachedY { get; private set; }
-    private bool isFacingLeft = false;
+    private Vector2 playerBodySize;
 
     [Header("Player Parameters")]
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float jumpHeight = 8f;
     [SerializeField] private float hightJumpHeight = 15f;
-    private float jumpForce;
-    private float hightJumpForce;
 
     #region Singleton
     private void Awake()
@@ -42,10 +40,10 @@ public class Whirlybird : MonoBehaviour
     {
         InputHandler = GetComponent<InputHandler>();
         PlayerBody = GetComponent<Rigidbody2D>();
-        PlayerSprite = GetComponentInChildren<SpriteRenderer>();
+        PlayerAnimator = GetComponentInChildren<Animator>();
 
-        jumpForce = Mathf.Sqrt(2 * PlayerBody.gravityScale * Physics.gravity.magnitude * jumpHeight);
-        hightJumpForce = Mathf.Sqrt(2 * PlayerBody.gravityScale * Physics.gravity.magnitude * hightJumpHeight);
+        playerBodySize = GetComponent<BoxCollider2D>().size;
+        HandleJump(10f);
     }
 
     private void Update()
@@ -59,22 +57,11 @@ public class Whirlybird : MonoBehaviour
         PlayerBody.AddForce(new Vector2(VelocityDifference, 0), ForceMode2D.Impulse);
         MaxReachedY = Mathf.Max(MaxReachedY, PlayerBody.position.y);
 
-        if (PlayerBody.velocityX > 0.01f & isFacingLeft)
-            Flip();
-        if (PlayerBody.velocityX < -0.01f & !isFacingLeft)
-            Flip();
+        PlayerAnimator.SetFloat("Velocity", PlayerBody.velocityX);
 
-        if (PlayerBody.position.x > GameParameters.Instance.ScreenSize.x)
-            PlayerBody.position -= new Vector2(2 * GameParameters.Instance.ScreenSize.x, 0);
-
-        if (PlayerBody.position.x < -GameParameters.Instance.ScreenSize.x)
-            PlayerBody.position += new Vector2(2 * GameParameters.Instance.ScreenSize.x, 0);
-    }
-
-    private void Flip()
-    {
-        PlayerSprite.flipX = !PlayerSprite.flipX;
-        isFacingLeft = !isFacingLeft;
+        float teleportationDistance = GameParameters.ScreenSize.x + playerBodySize.x / 2;
+        if (Mathf.Abs(PlayerBody.position.x) > teleportationDistance)
+            PlayerBody.position -= Mathf.Sign(PlayerBody.position.x) * new Vector2(2 * teleportationDistance, 0);
     }
 
     #region Actions
@@ -85,20 +72,18 @@ public class Whirlybird : MonoBehaviour
 
     public void Jump()
     {
-        HandleJump(jumpForce);
+        HandleJump(jumpHeight);
     }
 
     public void HighJump()
     {
-        HandleJump(hightJumpForce);
+        HandleJump(hightJumpHeight);
     }
 
-    private void HandleJump(float jumpForce)
+    private void HandleJump(float jumpHeight)
     {
-        Vector2 VelocityBeforeLanding = PlayerBody.velocity;
-        VelocityBeforeLanding.y = 0f;
-        PlayerBody.velocity = VelocityBeforeLanding;
-        PlayerBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        float jumpForce = Mathf.Sqrt(2 * PlayerBody.gravityScale * Physics.gravity.magnitude * jumpHeight);
+        PlayerBody.AddForce(Vector2.up * (jumpForce - PlayerBody.velocityY), ForceMode2D.Impulse);
     }
     #endregion
 }

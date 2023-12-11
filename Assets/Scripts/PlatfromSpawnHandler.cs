@@ -17,7 +17,7 @@ public class PlatfromSpawnHandler : MonoBehaviour
 
     private void Update()
     {
-        while (Mathf.Floor(Whirlybird.Instance.MaxReachedY / platformSpawnInterval) * platformSpawnInterval + GameParameters.Instance.ScreenSize.y >= platformSpawnHeight)
+        while (Mathf.Floor(Whirlybird.Instance.MaxReachedY / platformSpawnInterval) * platformSpawnInterval + GameParameters.ScreenSize.y >= platformSpawnHeight)
             SpawnPlatform();
     }
 
@@ -44,7 +44,10 @@ public class PlatfromSpawnHandler : MonoBehaviour
     private PlatformPool GetRandomPlatformPool()
     {
         PlatformPool[] platformPools;
-        if (GetRandomBool(0.5f * (1f - (float)spawnedObstaclesCount / obstaclesCountLimit)))
+
+        float difficulty = Mathf.Clamp(Whirlybird.Instance.MaxReachedY / 100, 0f, 0.5f);
+
+        if (GetRandomBool(difficulty * (1f - (float)spawnedObstaclesCount / obstaclesCountLimit)))
         {
             platformPools = obstacles;
             spawnedObstaclesCount++;

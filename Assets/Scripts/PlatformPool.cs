@@ -19,7 +19,7 @@ public class PlatformPool : MonoBehaviour
     public void SpawnPlatform(out GameObject platform, float platformSpawnHeight)
     {
         platform = platforms.Get();
-        platform.transform.position = new Vector3(Random.Range(-GameParameters.Instance.ScreenSize.x, GameParameters.Instance.ScreenSize.x), platformSpawnHeight, 0);
+        platform.transform.position = new Vector3(Random.Range(-GameParameters.ScreenSize.x, GameParameters.ScreenSize.x), platformSpawnHeight, 0);
     }
 
     public void DespawnPlatform(GameObject platform)

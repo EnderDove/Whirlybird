@@ -11,13 +11,13 @@ public abstract class Platform : MonoBehaviour
         if (other.gameObject.name != Whirlybird.Instance.gameObject.name)
             return;
 
-        if (Whirlybird.Instance.PlayerBody.velocityY <= 0)
+        if (Whirlybird.Instance.PlayerBody.velocityY <= 0 && transform.position.y < Whirlybird.Instance.PlayerBody.position.y)
             OnLandingAction();
     }
 
     private void FixedUpdate()
     {
-        if (Whirlybird.Instance.MaxReachedY - GameParameters.Instance.ScreenSize.y > transform.position.y)
+        if (Whirlybird.Instance.MaxReachedY - GameParameters.ScreenSize.y > transform.position.y)
             ParentPool.DespawnPlatform(gameObject);
     }
 }

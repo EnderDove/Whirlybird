@@ -4,8 +4,8 @@ public class GameParameters : MonoBehaviour
 {
     public static GameParameters Instance;
 
-    public Vector2 ScreenSize;
-    public bool IsGameEnded = false;
+    public static Vector2 ScreenSize { get; private set; }
+    public bool IsGameEnded { get; set; }
 
     private void Awake()
     {
@@ -15,6 +15,8 @@ public class GameParameters : MonoBehaviour
             return;
         }
         Instance = this;
+
+        ScreenSize = Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight));
     }
 
     private void OnDestroy()
