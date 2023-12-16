@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Whirlybird : MonoBehaviour
 {
     #region  Object References
-    public static Whirlybird Instance;
+    public static Whirlybird Instance { get; private set; }
     public InputHandler InputHandler { get; private set; }
     public Rigidbody2D PlayerBody { get; private set; }
     public Animator PlayerAnimator { get; private set; }
@@ -18,6 +19,8 @@ public class Whirlybird : MonoBehaviour
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float jumpHeight = 8f;
     [SerializeField] private float hightJumpHeight = 15f;
+    [SerializeField] private float flightDuration = 7f;
+    [SerializeField] private float flightSpeed = 7f;
 
     #region Singleton
     private void Awake()
@@ -80,10 +83,26 @@ public class Whirlybird : MonoBehaviour
         HandleJump(hightJumpHeight);
     }
 
+    public void ActivateFlight()
+    {
+        StartCoroutine(Fly());
+    }
+
     private void HandleJump(float jumpHeight)
     {
         float jumpForce = Mathf.Sqrt(2 * PlayerBody.gravityScale * Physics.gravity.magnitude * jumpHeight);
         PlayerBody.AddForce(Vector2.up * (jumpForce - PlayerBody.velocityY), ForceMode2D.Impulse);
+    }
+
+    private IEnumerator Fly()
+    {
+        float _timer = flightDuration;
+        while (_timer >= 0)
+        {
+            PlayerBody.velocity = new Vector2(PlayerBody.velocityX, flightSpeed);
+            _timer -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
     }
     #endregion
 }

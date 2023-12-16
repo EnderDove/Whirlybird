@@ -3,6 +3,9 @@ using UnityEngine;
 public abstract class Platform : MonoBehaviour
 {
     public PlatformPool ParentPool;
+    public bool ContainsPropeller;
+
+    [SerializeField] private SpriteRenderer PropellerSprite;
 
     protected abstract void OnLandingAction();
 
@@ -12,12 +15,28 @@ public abstract class Platform : MonoBehaviour
             return;
 
         if (Whirlybird.Instance.PlayerBody.velocityY <= 0 && transform.position.y < Whirlybird.Instance.PlayerBody.position.y)
+        {
             OnLandingAction();
+            if (ContainsPropeller)
+            {
+                Whirlybird.Instance.ActivateFlight();
+                RemovePropeller();
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         if (Whirlybird.Instance.MaxReachedY - GameParameters.ScreenSize.y > transform.position.y)
-            ParentPool.DespawnPlatform(gameObject);
+        {
+            if (ContainsPropeller) { RemovePropeller(); }
+            ParentPool.DespawnPlatform(this);
+        }
+    }
+
+    private void RemovePropeller()
+    {
+        ContainsPropeller = false;
+        PropellerSprite.enabled = false;
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Cloud : Platform
 {
-    public bool IsDesrtoyed = false;
+    public bool IsDesrtoyed { get; private set; }
 
     [SerializeField] private SpriteRenderer cloudSpriteRenderer;
     [SerializeField] private ParticleSystem cloudParticleSystem;

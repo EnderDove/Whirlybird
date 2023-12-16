@@ -24,18 +24,11 @@ public class PlatfromSpawnHandler : MonoBehaviour
     private void SpawnPlatform()
     {
         PlatformPool platformPool = GetRandomPlatformPool();
-
-        platformPool.SpawnPlatform(out GameObject platform, platformSpawnHeight);
+        platformPool.SpawnPlatform(out Platform platform, platformSpawnHeight);
         platformSpawnHeight += platformSpawnInterval;
-
-        if (platform.TryGetComponent(out IPropellerSpawner propellerSpawner))
-        {
-            if (GetRandomBool(0.125f))
-                propellerSpawner.SpawnPropeller();
-        }
     }
 
-    private bool GetRandomBool(float chance = 0.5f)
+    public static bool GetRandomBool(float chance = 0.5f)
     {
         bool rand = Random.value < chance;
         return rand;
