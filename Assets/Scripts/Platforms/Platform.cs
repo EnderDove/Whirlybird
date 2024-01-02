@@ -1,11 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public abstract class Platform : MonoBehaviour
 {
-    public PlatformPool ParentPool;
-    public bool ContainsPropeller;
+    public PlatformPool ParentPool { set; get; }
+    public bool ContainsPropeller = false;
 
-    [SerializeField] private SpriteRenderer PropellerSprite;
+    [SerializeField] private SpriteRenderer propellerSprite;
 
     protected abstract void OnLandingAction();
 
@@ -25,18 +26,28 @@ public abstract class Platform : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (Whirlybird.Instance.MaxReachedY - GameParameters.ScreenSize.y > transform.position.y)
-        {
-            if (ContainsPropeller) { RemovePropeller(); }
-            ParentPool.DespawnPlatform(this);
-        }
-    }
-
-    private void RemovePropeller()
+    public void RemovePropeller()
     {
         ContainsPropeller = false;
-        PropellerSprite.enabled = false;
+        propellerSprite.enabled = false;
+    }
+
+    public void AddPropeller()
+    {
+        ContainsPropeller = true;
+        propellerSprite.enabled = true;
+    }
+
+    public IEnumerator CheckingForDespawn()
+    {
+        while (true)
+        {
+            if (gameObject.activeSelf)
+            {
+                if (transform.position.y <= GameParameters.Instance.MaxReachedY - GameParameters.Instance.ScreenSize.y)
+                    ParentPool.DespawnPlatform(this);
+            }
+            yield return new WaitForFixedUpdate();
+        }
     }
 }

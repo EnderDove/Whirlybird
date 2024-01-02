@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class GameParameters : MonoBehaviour
 {
-    public static GameParameters Instance;
+    public static GameParameters Instance { get; private set; }
+    public GameSettings GameSettings;
 
-    public static Vector2 ScreenSize { get; private set; }
+    public Vector2 ScreenSize { get; private set; }
     public bool IsGameEnded { get; set; }
+    public float MaxReachedY { get; set; }
 
     private void Awake()
     {

@@ -111,9 +111,9 @@ Transform:
   m_GameObject: {fileID: 5766898718528935964}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.63, y: 3.68, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8284035235212101919}
   m_Father: {fileID: 0}
@@ -130,6 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcea64aa65f97fd4b80a98893bc9e55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParentPool: {fileID: 0}
+  ContainsPropeller: 0
+  propellerSprite: {fileID: 0}
 --- !u!60 &3786595204276984661
 PolygonCollider2D:
   m_ObjectHideFlags: 0

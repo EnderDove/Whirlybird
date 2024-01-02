@@ -4,6 +4,7 @@ using UnityEngine.Pool;
 public class PlatformPool : MonoBehaviour
 {
     [SerializeField] private GameObject platformPrefab;
+    [SerializeField] private bool canSpawnPropeller;
     private ObjectPool<Platform> platforms;
 
     private void Start()
@@ -19,8 +20,15 @@ public class PlatformPool : MonoBehaviour
     public void SpawnPlatform(out Platform platform, float platformSpawnHeight)
     {
         platform = platforms.Get();
-        platform.ContainsPropeller = PlatfromSpawnHandler.GetRandomBool(0.05f);
-        platform.transform.position = new Vector3(Random.Range(-GameParameters.ScreenSize.x, GameParameters.ScreenSize.x), platformSpawnHeight, 0);
+        StartCoroutine(platform.CheckingForDespawn());
+        float xPos = Random.Range(-GameParameters.Instance.ScreenSize.x + 0.5f, GameParameters.Instance.ScreenSize.x - 0.5f);
+        platform.transform.position = new Vector3(xPos, platformSpawnHeight, 0);
+
+        if (canSpawnPropeller)
+        {
+            if (PlatfromSpawnHandler.GetRandomBool(GameParameters.Instance.GameSettings.PropellerSpawnChance))
+                platform.AddPropeller();
+        }
     }
 
     public void DespawnPlatform(Platform platform)
@@ -45,6 +53,9 @@ public class PlatformPool : MonoBehaviour
 
     private void ReleasePlatform(Platform platform)
     {
+        if (platform.ContainsPropeller)
+            platform.RemovePropeller();
+        StopCoroutine(platform.CheckingForDespawn());
         platform.gameObject.SetActive(false);
     }
 

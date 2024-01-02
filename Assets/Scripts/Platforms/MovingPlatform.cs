@@ -2,7 +2,6 @@ using UnityEngine;
 
 public abstract class MovingPlatform : Platform
 {
-    [SerializeField] private float Speed = 0.3f;
     private Transform platformTransform;
 
     private Vector2 leftTargetPosition;
@@ -21,14 +20,15 @@ public abstract class MovingPlatform : Platform
     private void OnEnable()
     {
         randomShift = Random.value * 10;
-        yPos = PlatfromSpawnHandler.platformSpawnHeight;
+        yPos = PlatfromSpawnHandler.PlatformSpawnHeight;
 
-        leftTargetPosition = new Vector2(-GameParameters.ScreenSize.x + platformScaleX, yPos);
-        rightTargetPosition = new Vector2(GameParameters.ScreenSize.x - platformScaleX, yPos);
+        leftTargetPosition = new Vector2(-GameParameters.Instance.ScreenSize.x + platformScaleX, yPos);
+        rightTargetPosition = new Vector2(GameParameters.Instance.ScreenSize.x - platformScaleX, yPos);
     }
 
     private void Update()
     {
-        platformTransform.position = Vector2.Lerp(leftTargetPosition, rightTargetPosition, (Mathf.Cos(Time.time * Mathf.PI * Speed + randomShift) + 1) * 0.5f);
+        float lerp = (Mathf.Cos(Time.time * Mathf.PI * GameParameters.Instance.GameSettings.MovingPlatformsSpeed + randomShift) + 1) * 0.5f;
+        platformTransform.position = Vector2.Lerp(leftTargetPosition, rightTargetPosition, lerp);
     }
 }

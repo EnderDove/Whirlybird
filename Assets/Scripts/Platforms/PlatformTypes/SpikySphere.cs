@@ -1,7 +1,11 @@
-public class SpikySphere : Platform
+using UnityEngine;
+
+public class SpikySphere : MovingPlatform
 {
+    [SerializeField] private Animator animator;
+
     protected override void OnLandingAction()
     {
-        throw new System.NotImplementedException();
+        Debug.Log(animator);
     }
 }

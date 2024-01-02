@@ -12,15 +12,7 @@ public class Whirlybird : MonoBehaviour
     public Animator PlayerAnimator { get; private set; }
     #endregion
 
-    public float MaxReachedY { get; private set; }
     private Vector2 playerBodySize;
-
-    [Header("Player Parameters")]
-    [SerializeField] private float movementSpeed = 5f;
-    [SerializeField] private float jumpHeight = 8f;
-    [SerializeField] private float hightJumpHeight = 15f;
-    [SerializeField] private float flightDuration = 7f;
-    [SerializeField] private float flightSpeed = 7f;
 
     #region Singleton
     private void Awake()
@@ -46,7 +38,6 @@ public class Whirlybird : MonoBehaviour
         PlayerAnimator = GetComponentInChildren<Animator>();
 
         playerBodySize = GetComponent<BoxCollider2D>().size;
-        HandleJump(10f);
     }
 
     private void Update()
@@ -56,13 +47,13 @@ public class Whirlybird : MonoBehaviour
 
     private void HandleMovement()
     {
-        float VelocityDifference = InputHandler.MovementInput * movementSpeed - PlayerBody.velocityX;
+        float VelocityDifference = InputHandler.MovementInput * GameParameters.Instance.GameSettings.MovementSpeed - PlayerBody.velocityX;
         PlayerBody.AddForce(new Vector2(VelocityDifference, 0), ForceMode2D.Impulse);
-        MaxReachedY = Mathf.Max(MaxReachedY, PlayerBody.position.y);
+        GameParameters.Instance.MaxReachedY = Mathf.Max(GameParameters.Instance.MaxReachedY, PlayerBody.position.y);
 
         PlayerAnimator.SetFloat("Velocity", PlayerBody.velocityX);
 
-        float teleportationDistance = GameParameters.ScreenSize.x + playerBodySize.x / 2;
+        float teleportationDistance = GameParameters.Instance.ScreenSize.x + playerBodySize.x / 2;
         if (Mathf.Abs(PlayerBody.position.x) > teleportationDistance)
             PlayerBody.position -= Mathf.Sign(PlayerBody.position.x) * new Vector2(2 * teleportationDistance, 0);
     }
@@ -75,12 +66,12 @@ public class Whirlybird : MonoBehaviour
 
     public void Jump()
     {
-        HandleJump(jumpHeight);
+        HandleJump(GameParameters.Instance.GameSettings.JumpHeight);
     }
 
     public void HighJump()
     {
-        HandleJump(hightJumpHeight);
+        HandleJump(GameParameters.Instance.GameSettings.HightJumpHeight);
     }
 
     public void ActivateFlight()
@@ -96,13 +87,15 @@ public class Whirlybird : MonoBehaviour
 
     private IEnumerator Fly()
     {
-        float _timer = flightDuration;
+        PlayerAnimator.SetBool("WithPropeller", true);
+        float _timer = GameParameters.Instance.GameSettings.FlightDuration;
         while (_timer >= 0)
         {
-            PlayerBody.velocity = new Vector2(PlayerBody.velocityX, flightSpeed);
+            PlayerBody.velocity = new Vector2(PlayerBody.velocityX, GameParameters.Instance.GameSettings.FlightSpeed);
             _timer -= Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
+        PlayerAnimator.SetBool("WithPropeller", false);
     }
     #endregion
 }

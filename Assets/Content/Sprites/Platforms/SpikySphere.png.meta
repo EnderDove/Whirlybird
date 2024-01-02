@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpikedSphere0
+      name: SpikySphere0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,7 +137,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpikedSphere1
+      name: SpikySphere1
       rect:
         serializedVersion: 2
         x: 26
@@ -158,7 +158,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpikedSphere2
+      name: SpikySphere2
       rect:
         serializedVersion: 2
         x: 52
@@ -189,9 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpikedSphere0: 3724306932444736685
-      SpikedSphere1: 1558319166029322908
-      SpikedSphere2: -2542583883753651898
+      SpikySphere0: 3724306932444736685
+      SpikySphere1: 1558319166029322908
+      SpikySphere2: -2542583883753651898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
