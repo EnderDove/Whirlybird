@@ -40,7 +40,7 @@ public class Whirlybird : MonoBehaviour
         playerBodySize = GetComponent<BoxCollider2D>().size;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         HandleMovement();
     }

@@ -779,8 +779,6 @@ MonoBehaviour:
   obstacles:
   - {fileID: 377279783}
   - {fileID: 623659456}
-  platformSpawnInterval: 2
-  obstaclesCountLimit: 3
 --- !u!4 &2109158699
 Transform:
   m_ObjectHideFlags: 0

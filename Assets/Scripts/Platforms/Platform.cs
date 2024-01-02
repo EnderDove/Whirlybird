@@ -40,14 +40,7 @@ public abstract class Platform : MonoBehaviour
 
     public IEnumerator CheckingForDespawn()
     {
-        while (true)
-        {
-            if (gameObject.activeSelf)
-            {
-                if (transform.position.y <= GameParameters.Instance.MaxReachedY - GameParameters.Instance.ScreenSize.y)
-                    ParentPool.DespawnPlatform(this);
-            }
-            yield return new WaitForFixedUpdate();
-        }
+        yield return new WaitUntil(() => transform.position.y < GameParameters.Instance.MaxReachedY - GameParameters.Instance.ScreenSize.y);
+        ParentPool.DespawnPlatform(this);
     }
 }

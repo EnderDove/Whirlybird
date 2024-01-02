@@ -20,9 +20,9 @@ public class PlatformPool : MonoBehaviour
     public void SpawnPlatform(out Platform platform, float platformSpawnHeight)
     {
         platform = platforms.Get();
-        StartCoroutine(platform.CheckingForDespawn());
         float xPos = Random.Range(-GameParameters.Instance.ScreenSize.x + 0.5f, GameParameters.Instance.ScreenSize.x - 0.5f);
         platform.transform.position = new Vector3(xPos, platformSpawnHeight, 0);
+        StartCoroutine(platform.CheckingForDespawn());
 
         if (canSpawnPropeller)
         {
@@ -33,6 +33,8 @@ public class PlatformPool : MonoBehaviour
 
     public void DespawnPlatform(Platform platform)
     {
+        if (platform.ContainsPropeller)
+            platform.RemovePropeller();
         platforms.Release(platform);
     }
 
@@ -53,9 +55,6 @@ public class PlatformPool : MonoBehaviour
 
     private void ReleasePlatform(Platform platform)
     {
-        if (platform.ContainsPropeller)
-            platform.RemovePropeller();
-        StopCoroutine(platform.CheckingForDespawn());
         platform.gameObject.SetActive(false);
     }
 
