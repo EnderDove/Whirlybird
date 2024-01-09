@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -61,17 +62,7 @@ public class Whirlybird : MonoBehaviour
     #region Actions
     public void Die()
     {
-        SceneManager.LoadScene(0);
-    }
-
-    public void Jump()
-    {
-        HandleJump(GameParameters.Instance.GameSettings.JumpHeight);
-    }
-
-    public void HighJump()
-    {
-        HandleJump(GameParameters.Instance.GameSettings.HightJumpHeight);
+        StartCoroutine(Dying());
     }
 
     public void ActivateFlight()
@@ -79,11 +70,12 @@ public class Whirlybird : MonoBehaviour
         StartCoroutine(Fly());
     }
 
-    private void HandleJump(float jumpHeight)
+    public void Jump(float jumpHeight)
     {
         float jumpForce = Mathf.Sqrt(2 * PlayerBody.gravityScale * Physics.gravity.magnitude * jumpHeight);
         PlayerBody.AddForce(Vector2.up * (jumpForce - PlayerBody.velocityY), ForceMode2D.Impulse);
     }
+    #endregion
 
     private IEnumerator Fly()
     {
@@ -97,5 +89,12 @@ public class Whirlybird : MonoBehaviour
         }
         PlayerAnimator.SetBool("WithPropeller", false);
     }
-    #endregion
+
+    private IEnumerator Dying()
+    {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
 }

@@ -15,7 +15,7 @@ public class DestructiblePlatform : Platform
 
     protected override void OnLandingAction()
     {
-        Whirlybird.Instance.Jump();
+        Whirlybird.Instance.Jump(GameParameters.Instance.GameSettings.JumpHeight);
         if (IsDesrtoyed)
             return;
         platformSpriteRenderer.enabled = false;

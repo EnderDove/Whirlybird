@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class MovingPlatform : Platform
 {
+    public float LifeTime => Time.time - birthTime;
+
     private Transform platformTransform;
 
     private Vector2 leftTargetPosition;
@@ -10,6 +12,7 @@ public abstract class MovingPlatform : Platform
     private float yPos;
     private float randomShift;
     private float platformScaleX;
+    private float birthTime;
 
     private void Start()
     {
@@ -21,6 +24,7 @@ public abstract class MovingPlatform : Platform
     {
         randomShift = Random.value * 10;
         yPos = PlatfromSpawnHandler.PlatformSpawnHeight;
+        birthTime = Time.time;
 
         leftTargetPosition = new Vector2(-GameParameters.Instance.ScreenSize.x + platformScaleX, yPos);
         rightTargetPosition = new Vector2(GameParameters.Instance.ScreenSize.x - platformScaleX, yPos);
@@ -28,7 +32,7 @@ public abstract class MovingPlatform : Platform
 
     private void Update()
     {
-        float lerp = (Mathf.Cos(Time.time * Mathf.PI * GameParameters.Instance.GameSettings.MovingPlatformsSpeed + randomShift) + 1) * 0.5f;
+        float lerp = (Mathf.Cos(LifeTime * Mathf.PI * GameParameters.Instance.GameSettings.MovingPlatformsSpeed + randomShift) + 1) * 0.5f;
         platformTransform.position = Vector2.Lerp(leftTargetPosition, rightTargetPosition, lerp);
     }
 }

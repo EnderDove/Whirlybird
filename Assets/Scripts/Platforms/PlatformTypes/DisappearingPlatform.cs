@@ -12,6 +12,6 @@ public class DisappearingPlatform : Platform
 
     protected override void OnLandingAction()
     {
-        Whirlybird.Instance.Jump();
+        Whirlybird.Instance.Jump(GameParameters.Instance.GameSettings.JumpHeight);
     }
 }

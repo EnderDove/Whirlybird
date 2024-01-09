@@ -153,11 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d76d95e6486a124aae4cf26b7128c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentPool: {fileID: 0}
   ContainsPropeller: 0
-  propellerSprite: {fileID: 0}
-  Speed: 0.3
-  animator: {fileID: 8258748302847629693}
+  propellerSprite: {fileID: 5266978646418274817}
+  platformAnimator: {fileID: 8258748302847629693}
+  sprite: {fileID: 5266978646418274817}
 --- !u!61 &6065599299125354833
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,7 +187,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

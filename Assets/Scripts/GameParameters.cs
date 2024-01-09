@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameParameters : MonoBehaviour
@@ -7,7 +8,28 @@ public class GameParameters : MonoBehaviour
 
     public Vector2 ScreenSize { get; private set; }
     public bool IsGameEnded { get; set; }
-    public float MaxReachedY { get; set; }
+    public float MaxReachedY
+    {
+        get => maxReachedY;
+        set
+        {
+            scoreText.ChangeText();
+            maxReachedY = value;
+        }
+    }
+    public static float Record
+    {
+        get
+        {
+            record = MathF.Max(Instance.MaxReachedY, record);
+            return record;
+        }
+    }
+
+    [SerializeField] private Transform recordLine;
+    [SerializeField] private TextView scoreText;
+    private float maxReachedY;
+    private static float record;
 
     private void Awake()
     {
@@ -19,6 +41,7 @@ public class GameParameters : MonoBehaviour
         Instance = this;
 
         ScreenSize = Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight));
+        recordLine.position = Vector3.up * Record;
     }
 
     private void OnDestroy()

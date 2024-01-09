@@ -7,6 +7,6 @@ public class JumpPlatform : Platform
     protected override void OnLandingAction()
     {
         anim.Play("JumpPlatform");
-        Whirlybird.Instance.HighJump();
+        Whirlybird.Instance.Jump(GameParameters.Instance.GameSettings.HightJumpHeight);
     }
 }

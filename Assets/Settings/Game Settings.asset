@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d0c4daf60dfa44882104fbddacac98, type: 3}
   m_Name: Game Settings
   m_EditorClassIdentifier: 
-  MovementSpeed: 7
+  MovementSpeed: 10
   JumpHeight: 9
   HightJumpHeight: 15
   FlightDuration: 3
-  FlightSpeed: 15
+  FlightSpeed: 20
   PropellerSpawnChance: 0.15
   PlatformSpawnInterval: 2
   ObstaclesCountLimit: 3
+  MovingPlatformsSpeed: 0.3
